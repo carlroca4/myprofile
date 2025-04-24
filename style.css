@@ -1,0 +1,431 @@
+:root {
+    --primary-color: #ff0000; /* Lightning red */
+    --dark-bg: #0a0a0a; /* Darker background */
+    --light-bg: rgba(255, 255, 255, 0.05); /* Subtle light background */
+    --text-color: #f0f0f0; /* Softer white for text */
+    --heading-font: 'Orbitron', sans-serif; /* Cool futuristic font for headings */
+    --body-font: 'Poppins', sans-serif; /* Clean and modern font for body text */
+}
+
+/* General Font Styles */
+body {
+    font-family: var(--body-font);
+    color: var(--text-color);
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0000 50%, #0a0a0a 100%), 
+                url('https://example.com/spiderman-2099-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
+    margin: 0;
+    animation: moveSpiderVerseBackground 15s linear infinite;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+h1 {
+    font-size: 5rem; /* Increased size for main headings */
+}
+
+h2 {
+    font-size: 3rem; /* Larger size for secondary headings */
+}
+
+h3 {
+    font-size: 2.5rem; /* Adjusted size for tertiary headings */
+}
+
+p, a, button, label, .nav-link, .card-text {
+    font-family: var(--body-font);
+    font-size: 1.3rem; /* Slightly larger for better readability */
+    line-height: 1.9; /* Increased line height for better spacing */
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--dark-bg);
+    z-index: -1;
+}
+
+/* Text Shadow for Better Readability */
+h1, h2, h5, p, .nav-link, .card-text, .lead, label, button, a {
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Increased shadow for better readability */
+}
+
+/* Custom Sword Cursor */
+.custom-cursor {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, rgba(255, 0, 0, 0.8) 0%, rgba(255, 0, 0, 0) 70%);
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease;
+}
+
+.custom-cursor.hovered {
+    transform: translate(-50%, -50%) scale(1.5);
+    filter: drop-shadow(0 0 15px rgba(255, 0, 0, 0.8));
+}
+
+/* Laser Trail */
+.laser-trail {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgba(255, 77, 77, 0.5) 0%, rgba(255, 77, 77, 0) 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.laser-trail.active {
+    opacity: 1;
+}
+
+/* Navbar */
+.navbar {
+    background: var(--dark-bg);
+    backdrop-filter: blur(5px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand {
+    font-family: var(--heading-font);
+    font-size: 2rem; /* Larger size for the brand name */
+    font-weight: 700;
+    color: var(--text-color) !important;
+    text-shadow: 0 0 5px var(--primary-color), 0 0 10px var(--primary-color);
+}
+
+.nav-link {
+    font-size: 1.2rem; /* Increased size for navigation links */
+    color: var(--text-color) !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem; /* Increased padding for hero section */
+}
+
+.hero-section .profile-img {
+    max-width: 250px;
+    width: 100%;
+    height: 250px; /* Ensure height matches width for a perfect circle */
+    border: 5px solid var(--primary-color);
+    border-radius: 50%; /* Makes the image a perfect circle */
+    object-fit: cover; /* Ensures the image scales properly within the circle */
+    box-shadow: 0 0 20px rgba(255, 77, 77, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.hero-section .profile-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 77, 77, 0.8);
+}
+
+.hero-section h1 {
+    font-family: var(--heading-font);
+    font-size: 5.5rem; /* Larger for hero section heading */
+    font-weight: 700;
+    color: var(--text-color);
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+}
+
+.hero-section p {
+    font-family: var(--body-font);
+    font-size: 1.6rem; /* Larger size for hero section text */
+    line-height: 2; /* Increased spacing for better visibility */
+}
+
+/* Custom Button */
+.btn-custom {
+    font-family: var(--body-font);
+    font-size: 1rem;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-custom:hover {
+    background-color: #cc0000;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+/* Modal */
+.modal-content {
+    background: var(--dark-bg);
+    border: 2px solid var(--primary-color);
+}
+
+.modal-img {
+    max-width: 100%;
+    max-height: 50vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Section Titles */
+.section-title {
+    font-family: var(--heading-font);
+    font-size: 2.5rem; /* Increased size for section titles */
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    text-shadow: 0 0 10px var(--primary-color);
+    position: relative;
+    display: inline-block;
+    margin-bottom: 3rem; /* Increased margin below section titles */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+/* Cards */
+.card {
+    font-family: var(--body-font);
+    background: var(--light-bg);
+    border: 1px solid var(--primary-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 2rem; /* Increased spacing between cards */
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px;
+}
+
+.card-title {
+    font-family: var(--heading-font);
+    font-size: 1.6rem; /* Larger size for card titles */
+    color: var(--primary-color);
+}
+
+.card-text {
+    font-family: var(--body-font);
+    font-size: 1.3rem; /* Slightly larger for card text */
+    color: var(--text-color);
+}
+
+.skill-img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+/* Sections */
+.contact-section, .follow-section, footer {
+    background: var(--dark-bg) !important;
+    padding: 4rem 2rem; /* Increased padding for contact and follow sections */
+}
+
+.form-control {
+    background: var(--light-bg);
+    border: 1px solid var(--primary-color);
+    color: var(--text-color);
+    margin-bottom: 1.5rem; /* Added spacing between form fields */
+}
+
+.form-control::placeholder {
+    color: #ccc;
+}
+
+.form-control.is-invalid {
+    border-color: #dc3545;
+}
+
+.invalid-feedback {
+    display: none;
+}
+
+.form-control:invalid[required]:focus ~ .invalid-feedback,
+.form-control.is-invalid ~ .invalid-feedback {
+    display: block;
+}
+
+.social-icon {
+    font-size: 2rem;
+    color: var(--text-color);
+    transition: color 0.3s;
+}
+
+.social-icon:hover {
+    color: var(--primary-color);
+}
+
+/* Typing Animation */
+.typing {
+    font-family: var(--heading-font);
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    animation: glow 1.5s infinite alternate;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    background-color: var(--primary-color);
+    animation: blink 0.5s step-end infinite;
+}
+
+.cursor.active {
+    background-color: transparent;
+}
+
+@keyframes blink {
+    50% {
+        background-color: transparent;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color);
+    }
+    to {
+        text-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+    }
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+@keyframes moveSpiderVerseBackground {
+    0% {
+        background-position: 0 0;
+    }
+    50% {
+        background-position: 50% 50%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-brand { font-size: 1.5rem; }
+    .hero-section h1 { font-size: 3.5rem; }
+    .hero-section p { font-size: 1.4rem; /* Adjusted size for smaller screens */ }
+    .card-title { font-size: 1.4rem; /* Adjusted size for smaller screens */ }
+    .card-text { font-size: 1.2rem; /* Adjusted size for smaller screens */ }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand { font-size: 1.25rem; padding: 0.25rem; }
+    .hero-section h1 { font-size: 2.5rem; }
+    .hero-section p { font-size: 1.2rem; /* Adjusted size for smaller screens */ }
+    .hero-section .profile-img { max-width: 180px; }
+    .custom-cursor, .laser-trail { display: none !important; }
+    body { cursor: auto !important; }
+    .container { padding: 2rem 1rem; /* Reduced padding for smaller screens */ }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand { font-size: 1rem; max-width: 60%; }
+    .navbar-nav { text-align: center; }
+    .section-title { font-size: 1.25rem; }
+    .card { margin-bottom: 1.5rem; }
+    .hero-section h1 { font-size: 2rem; }
+    .hero-section .profile-img { max-width: 150px; }
+    .hero-section p { font-size: 1rem; /* Adjusted size for smallest screens */ }
+    .card-title { font-size: 1.2rem; /* Adjusted size for smallest screens */ }
+    .card-text { font-size: 1rem; /* Adjusted size for smallest screens */ }
+    .skill-img { width: 50px; height: 50px; }
+    .container { padding: 1.5rem 1rem; /* Reduced padding for smallest screens */ }
+}
+
+/* Adjusted Spacing */
+.container {
+    padding: 3rem 2rem; /* Increased padding for better spacing */
+    position: relative;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    opacity: 0.7;
+}
+
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary-color);
+    opacity: 0.7;
+}
+
+/* Adjust for specific sections */
+.hero-section::before,
+.hero-section::after {
+    display: none; /* No lines for the hero section */
+}
+
+.contact-section::before,
+.contact-section::after {
+    background: var(--primary-color);
+    opacity: 1; /* Make lines more prominent for the contact section */
+}
+
+.follow-section::before,
+.follow-section::after {
+    background: var(--primary-color);
+    opacity: 1; /* Make lines more prominent for the follow section */
+}
