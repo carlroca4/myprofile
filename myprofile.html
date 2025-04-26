@@ -116,6 +116,7 @@
         .nav-link {
             color: #fff !important;
             transition: color 0.3s;
+            padding: 0.5rem 1rem; /* Increased tap area */
         }
 
         .nav-link:hover {
@@ -133,7 +134,7 @@
         }
 
         .hero-section .profile-img {
-            max-width: 200px;
+            max-width: 150px;
             width: 100%;
             border: 5px solid var(--primary-color);
             border-radius: 50%;
@@ -162,6 +163,10 @@
             margin-bottom: 2rem;
         }
 
+        .hero-section .btn {
+            margin: 0.5rem; /* Better spacing for buttons */
+        }
+
         /* Section Titles */
         .section-title {
             position: relative;
@@ -171,7 +176,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             font-weight: 700;
-            font-size: 2.5rem; /* Increased font size */
+            font-size: 2.5rem;
         }
 
         .section-title::after {
@@ -192,7 +197,7 @@
             margin-top: 2rem;
             margin-bottom: 1rem;
             position: relative;
-            font-size: 1.75rem; /* Increased font size */
+            font-size: 1.75rem;
         }
 
         .subsection-title::before {
@@ -283,14 +288,15 @@
         .card-img-top {
             object-fit: cover;
             height: 200px;
+            width: 100%;
         }
 
         .card-title {
-            font-size: 1.5rem; /* Increased font size */
+            font-size: 1.5rem;
         }
 
         .card-text {
-            font-size: 1.25rem; /* Increased font size */
+            font-size: 1.25rem;
         }
 
         /* Skill Card Images */
@@ -336,6 +342,7 @@
             font-size: 2rem;
             color: #fff;
             transition: color 0.3s;
+            padding: 0.5rem; /* Larger tap area */
         }
 
         .social-icon:hover {
@@ -377,7 +384,7 @@
         }
 
         p, li {
-            font-size: 1.2rem; /* Increased font size for paragraphs and list items */
+            font-size: 1.2rem;
         }
 
         /* Responsive Design */
@@ -415,6 +422,12 @@
                 font-size: 1.25rem;
                 padding: 0.25rem;
             }
+            .navbar {
+                padding: 0.25rem 0.5rem; /* Reduced padding */
+            }
+            .hero-section {
+                min-height: 80vh; /* Reduced height */
+            }
             .hero-section h1 {
                 font-size: 2.5rem;
             }
@@ -430,6 +443,10 @@
             body {
                 cursor: default;
             }
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -440,24 +457,82 @@
             .navbar-nav {
                 text-align: center;
             }
-            .section-title {
-                font-size: 1.25rem;
+            .nav-link {
+                font-size: 1rem;
+                padding: 0.75rem 1rem; /* Larger tap area */
             }
-            .card {
-                margin-bottom: 1.5rem;
+            .navbar-toggler {
+                padding: 0.25rem 0.5rem;
+            }
+            .hero-section {
+                min-height: 70vh; /* Further reduced height */
+                padding: 1rem;
             }
             .hero-section h1 {
-                font-size: 2rem;
-            }
-            .hero-section .profile-img {
-                max-width: 120px;
+                font-size: 1.75rem;
             }
             .hero-section p {
                 font-size: 0.9rem;
             }
+            .hero-section .profile-img {
+                max-width: 120px;
+                margin-bottom: 1rem;
+            }
+            .hero-section .btn {
+                font-size: 0.9rem;
+                padding: 0.5rem 1rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+            .subsection-title {
+                font-size: 1.25rem;
+            }
+            .container {
+                padding: 1rem; /* Reduced padding */
+            }
+            .container.p-5 {
+                padding: 2rem 1rem !important; /* Override specific padding */
+            }
+            .card {
+                margin-bottom: 1.5rem;
+            }
+            .card-title {
+                font-size: 1.25rem;
+            }
+            .card-text {
+                font-size: 1rem;
+            }
+            .card-img-top {
+                height: 150px; /* Reduced height for cards */
+            }
             .skill-img {
                 width: 50px;
                 height: 50px;
+            }
+            p, li {
+                font-size: 1rem;
+            }
+            .social-icon {
+                font-size: 1.75rem;
+                padding: 0.75rem; /* Larger tap area */
+            }
+            .form-control, .form-label {
+                font-size: 0.9rem;
+            }
+            .btn {
+                font-size: 0.9rem;
+            }
+            .timeline::before {
+                left: 20px;
+            }
+            .timeline-item {
+                padding-left: 40px !important;
+            }
+            .timeline-item::before {
+                left: 20px !important;
+                width: 12px;
+                height: 12px;
             }
         }
     </style>
@@ -471,7 +546,7 @@
     <div class="laser-trail" id="laser-trail"></div>
 
     <header>
-        <nav class="navbar navbar-expand-lg">
+        <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#" aria-label="Carl Andrei Rocafor Portfolio Home">Carl Andrei Rocafor</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -501,8 +576,10 @@
                 <p>
                     Aspiring Web Developer | <span id="dynamic-text" class="typing"></span><span class="cursor">|</span>
                 </p>
-                <a href="#projects" class="btn btn-primary btn-lg mx-20">View Projects</a>
-                <a href="#contact" class="btn btn-outline-light btn-lg mx-20">Contact Me</a>
+                <div>
+                    <a href="#projects" class="btn btn-primary btn-lg mx-20">View Projects</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg mx-20">Contact Me</a>
+                </div>
             </div>
         </section>
 
@@ -611,7 +688,7 @@
                                 <h5 class="card-title">IT Support</h5>
                                 <p class="card-text">Helped friends and family troubleshoot hardware and software issues, from PCs to networks.</p>
                                 <div class="progress">
-                                    <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">5%</div>
+                                    <div class="progress-bar" role="progressbar" style="width: 45%;" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100">45%</div>
                                 </div>
                             </div>
                         </div>
@@ -866,7 +943,7 @@
         <section class="container-fluid follow-section py-5" data-aos="fade-up">
             <div class="container text-center">
                 <h2 class="section-title">Follow Me</h2>
-                <div class="d-flex justify-content-center gap-4">
+                <div class="d-flex justify-content-center gap-4 flex-wrap">
                     <a href="https://www.facebook.com/carlandrei.rocafor" class="text-decoration-none" target="_blank" rel="noopener noreferrer">
                         <i class="bi bi-facebook social-icon" aria-label="Facebook"></i>
                     </a>
@@ -931,27 +1008,32 @@
             try {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-                // Draw radial lines (thicker and bolder)
+                // Adjust animation intensity based on screen size
+                const isMobile = window.innerWidth <= 576;
+                const opacity = isMobile ? 0.5 : 0.7; // Reduced opacity on mobile
+                const offsetMultiplier = isMobile ? 10 : 20; // Reduced animation intensity
+
+                // Draw radial lines
                 for (let i = 0; i < numRadials; i++) {
                     const angle = (i / numRadials) * Math.PI * 2;
-                    const offset = Math.sin(time * 0.02) * 20;
+                    const offset = Math.sin(time * 0.02) * offsetMultiplier;
                     const endX = centerX + Math.cos(angle) * (maxRadius + offset);
                     const endY = centerY + Math.sin(angle) * (maxRadius + offset);
 
                     ctx.beginPath();
                     ctx.moveTo(centerX, centerY);
                     ctx.lineTo(endX, endY);
-                    ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+                    ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
                     ctx.lineWidth = 2;
                     ctx.stroke();
                 }
 
-                // Draw concentric webs (thicker and bolder)
+                // Draw concentric webs
                 for (let r = maxRadius * 0.2; r <= maxRadius; r += maxRadius * 0.2) {
                     ctx.beginPath();
                     for (let i = 0; i <= numRadials; i++) {
                         const angle = (i / numRadials) * Math.PI * 2;
-                        const offset = Math.sin(time * 0.02 + r * 0.01) * 10;
+                        const offset = Math.sin(time * 0.02 + r * 0.01) * (offsetMultiplier / 2);
                         const x = centerX + Math.cos(angle) * (r + offset);
                         const y = centerY + Math.sin(angle) * (r + offset);
                         if (i === 0) {
@@ -961,7 +1043,7 @@
                         }
                     }
                     ctx.closePath();
-                    ctx.strokeStyle = 'rgba(192, 0, 0, 0.9)';
+                    ctx.strokeStyle = `rgba(192, 0, 0, ${opacity + 0.2})`;
                     ctx.lineWidth = 1.5;
                     ctx.stroke();
                 }
@@ -1156,3 +1238,4 @@
     </script>
 </body>
 </html>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
